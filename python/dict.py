@@ -1,6 +1,9 @@
 # -*- coding:utf-8 -*-
 
-# dict类型，字典，类似其他语言的map，
+# dict类型，字典，类似其他语言的map
+# 与list相比：
+#	dict查找和插入的速度很快，不会随着key的增加而变慢
+#	dict需要占用大量的内存，内存浪费多
 # 定义：variable = {'key': value, 'key1': value}
 print('===============================定义')
 d = {'Micheal': 95, 'Bob': 75, 'Tracy': 85}
