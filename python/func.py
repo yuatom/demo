@@ -88,6 +88,8 @@ print(calc(*(1, 3, 5, 7)))		# 也可以将tuple或list通过添加*传入
 # 通过可变参数，即加上*，在函数调用时会把参数自动组装为一个tuple
 
 
+# ==============================================================================================================
+
 # 关键字参数，可传入0或任意个含参数名的参数，通过使用**
 def person(name, age, **kw):
 	print('name:', name, 'age:', age, 'other:', kw)
@@ -100,6 +102,9 @@ person('Adam', 45, gender='M', job='Engineer')	# name: Adam age: 45 other: {'job
 extra = {'city': 'Beijing', 'job': 'Engineer'}
 person('Jack', 24, **extra)
 
+
+
+# ==============================================================================================================
 
 # 命名关键字参数，关键字参数中传入的参数不受限制，通过命名关键字参数可以来限制参数
 def person(name, age, *, city, job):
@@ -120,6 +125,39 @@ person('Jack', 24, city='Beijing', job='Engineer')		# Jack 24 () Beijing Enginee
 def person(name, age, *, city='Beijing', job):	
     print(name, age, city, job)
 
+# ==============================================================================================================
+
+# 参数组合
+
+def f1(a, b, c=0, *args, **kw):		# 可变参数和关键字参数
+	print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
+
+def f2(a, b, c=0, *, d, **kw):		# 命名关键字参数，可变参数
+	print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
+
+f1(1, 2)
+f1(1, 2, c=3)
+f1(1, 2, 3, 'a', 'b')
+f1(1, 2, 3, 'a', 'b', x=99)
+f2(1, 2, d=99, ext=None)
+
+#对于任意函数，都可以通过类似func(*args, **kw)的形式调用它，无论它的参数是如何定义的。
+
+args = [1,2,3,4]
+kw = {'x':'y', 'y':'z'}
+f1(*args, **kw)			# a = 1 b = 2 c = 3 args = (4,) kw = {'x': 'y', 'y': 'z'}
+
+args = [1,2,3,4]
+kw = {'x':'y', 'y':'z'}
+#f2(*args, **kw)				# 报错，只有3个位置参数，但是arg里传了4个
+
+args = [1,2,3]
+kw = {'x':'y', 'y':'z'}
+#f2(*args, **kw)				# 报错，位置参数没问题，但是后面需要一个关键字参数d，kw中没有给出
+
+args = [1,2,3]
+kw = { 'd':'z', 'x':'y'}		# a = 1 b = 2 c = 3 d = z kw = {'x': 'y'}
+f2(*args, **kw)	
 
 # 小结
 
