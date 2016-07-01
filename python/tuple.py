@@ -2,6 +2,7 @@
 # tuple，不可变的有序列表
 # 除了定义之后元素不可变，其他都和list类似
 # 因为tuple不可变，所以代码更安全。如果可能，能用tuple代替list就尽量用tuple
+# tuple支持切片
 
 print('==============================定义，使用()')
 classmates = ('Michael', 'Bob', 'Tracy')
@@ -25,3 +26,4 @@ t5 = (1,l)
 print(t5)			# (1, [1, 2, 3])
 l.append(4)
 print(t5)			# (1, [1, 2, 3, 4])，t5变了！其实t5保存的值没变，当元素是list时，保存的是list的地址
+
