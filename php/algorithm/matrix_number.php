@@ -33,9 +33,8 @@ function cal($input, $x = 1, $y = 1, $result = 0, $path = array()){
 
 $input = [0,[0,1,3,8],[0,2,10,3],[0,4,4,1]];
 $res = cal($input);
-echo "<pre>";
 var_dump($res[0]);
 foreach ($res[1] as $key => $value) {
 	echo $value[0] , ',' , $value[1];
-	echo "<br>";
+	echo "\n";
 }
